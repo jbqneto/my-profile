@@ -2,7 +2,7 @@
     "title": {
         "about": "About",
         "skills": "Skills",
-        "timeline": "Timeline",
+        "experience": "Experience",
         "projects": "Projects",
         "contact": "Contact",
         "greeting": "Hello, World! I'm {name}",
@@ -10,7 +10,7 @@
         "viewResume": "View Resume",
         "myBlog": "My blog",
         "skillsTitle": "Skills & Technologies",
-        "timelineTitle": "Work Timeline",
+        "timelineTitle": "Work Experience",
         "projectsTitle": "Featured Projects",
         "contactTitle": "Get In Touch",
         "namePlaceholder": "Name",

@@ -1,0 +1,53 @@
+{
+    "title": {
+        "about": "About",
+        "skills": "Skills",
+        "timeline": "Timeline",
+        "projects": "Projects",
+        "contact": "Contact",
+        "greeting": "Hello, World! I'm {name}",
+        "role": "Full-stack Developer  |  Tech Explorer  |  Blockchain curious",
+        "viewResume": "View Resume",
+        "myBlog": "My blog",
+        "skillsTitle": "Skills & Technologies",
+        "timelineTitle": "Work Timeline",
+        "projectsTitle": "Featured Projects",
+        "contactTitle": "Get In Touch",
+        "namePlaceholder": "Name",
+        "emailPlaceholder": "Email",
+        "messagePlaceholder": "Message",
+        "sendMessage": "Send Message",
+        "viewProject": "View Project",
+        "footer": "© {year} {name}. All rights reserved."
+    },
+    "home": {
+        "jobs": [
+            {
+                "role": "Senior Full Stack Developer"
+            },
+            {
+                "role": "Frontend Developer"
+            },
+            {
+                "role": "Junior Developer"
+            }
+        ],
+        "projects": {
+            "1": {
+                "title": "Project 1",
+                "description": "A brief description of the project and the technologies used.",
+                "alt": "Project 1"
+            },
+            "2": {
+                "title": "Project 2",
+                "description": "A brief description of the project and the technologies used.",
+                "alt": "Project 2"
+            },
+            "3": {
+                "title": "Project 3",
+                "description": "A brief description of the project and the technologies used.",
+                "alt": "Project 3"
+            }
+        }
+    }
+}

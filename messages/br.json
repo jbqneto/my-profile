@@ -1,0 +1,53 @@
+{
+    "title": {
+        "about": "Sobre",
+        "skills": "Habilidades",
+        "timeline": "Cronologia",
+        "projects": "Projetos",
+        "contact": "Contato",
+        "greeting": "Olá, Mundo! Eu sou {name}",
+        "role": "Full-stack Developer  |  Tech Explorer  |  Blockchain curious",
+        "viewResume": "Ver Currículo",
+        "myBlog": "Meu blog",
+        "skillsTitle": "Habilidades e Tecnologias",
+        "timelineTitle": "Histórico Profissional",
+        "projectsTitle": "Projetos em Destaque",
+        "contactTitle": "Entre em Contato",
+        "namePlaceholder": "Nome",
+        "emailPlaceholder": "Email",
+        "messagePlaceholder": "Mensagem",
+        "sendMessage": "Enviar Mensagem",
+        "viewProject": "Ver Projeto",
+        "footer": "© {year} {name}. Todos os direitos reservados."
+    },
+    "home": {
+        "jobs": [
+            {
+                "role": "Desenvolvedor Full Stack Sênior"
+            },
+            {
+                "role": "Desenvolvedor Frontend"
+            },
+            {
+                "role": "Desenvolvedor Júnior"
+            }
+        ],
+        "projects": {
+            "1": {
+                "title": "Projeto 1",
+                "description": "Uma breve descrição do projeto e das tecnologias utilizadas.",
+                "alt": "Projeto 1"
+            },
+            "2": {
+                "title": "Projeto 2",
+                "description": "Uma breve descrição do projeto e das tecnologias utilizadas.",
+                "alt": "Projeto 2"
+            },
+            "3": {
+                "title": "Projeto 3",
+                "description": "Uma breve descrição do projeto e das tecnologias utilizadas.",
+                "alt": "Projeto 3"
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ import { Input } from "@/app/components/ui/input";
 import { Textarea } from "@/app/components/ui/textarea";
 import { Briefcase, Calendar, Code, Linkedin, Mail, Terminal } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from 'next/image';
 import Link from "next/link";
 import Github from '../../../public/imgs/github.svg';
 import LanguageSwitcher from "../components/includes/language-switcher";
@@ -25,7 +26,7 @@ export default function Component() {
             <ul className="flex space-x-4 mr-4">
               <li><Link href="#about" className="hover:text-green-500 transition-colors">{t('title.about')}</Link></li>
               <li><Link href="#skills" className="hover:text-green-500 transition-colors">{t('title.skills')}</Link></li>
-              <li><Link href="#timeline" className="hover:text-green-500 transition-colors">{t('title.experience')}</Link></li>
+              <li><Link href="#timeline" className="hover:text-green-500 transition-colors">{t('title.timeline')}</Link></li>
               <li><Link href="#projects" className="hover:text-green-500 transition-colors">{t('title.projects')}</Link></li>
               <li><Link href="#contact" className="hover:text-green-500 transition-colors">{t('title.contact')}</Link></li>
             </ul>
@@ -130,7 +131,7 @@ export default function Component() {
             </div>
             <div className="mt-8 flex justify-center space-x-4">
               <Link href="https://github.com/jbqneto" target="_blank" className="text-gray-400 hover:text-white">
-                <Github className="w-6 h-6" />
+                <Image alt="github" src={Github} className="w-6 h-6" />
               </Link>
               <Link href="https://www.linkedin.com/in/jbqneto" target="_blank" className="text-gray-400 hover:text-white">
                 <Linkedin className="w-6 h-6" />

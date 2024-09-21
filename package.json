@@ -1,6 +1,5 @@
 {
   "name": "my-profile",
-  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,7 +20,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

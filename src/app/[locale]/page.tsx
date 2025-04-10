@@ -5,14 +5,22 @@ import { Input } from "@/app/components/ui/input";
 import { Textarea } from "@/app/components/ui/textarea";
 import { Briefcase, Calendar, Code, Linkedin, Mail, Terminal } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from 'next/image';
 import Link from "next/link";
+import { WORK_EXPERIENCES } from "../../../data/constants";
 import Github from '../../../public/imgs/github.svg';
 import LanguageSwitcher from "../components/includes/language-switcher";
 import { Projects } from "../components/includes/projects/projects";
 
+const CV_URL = "https://drive.google.com/file/d/1AG79l8u-wQK29Ut_1j6qbQr0RdpWz91z/view?usp=drive_link";
+
 export default function Component() {
   const t = useTranslations();
+
+  function downloadCv(evt: MouseEvent): void {
+    evt.preventDefault();
+
+    window.open(CV_URL, "_blank");
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 font-mono">
@@ -26,7 +34,7 @@ export default function Component() {
             <ul className="flex space-x-4 mr-4">
               <li><Link href="#about" className="hover:text-green-500 transition-colors">{t('title.about')}</Link></li>
               <li><Link href="#skills" className="hover:text-green-500 transition-colors">{t('title.skills')}</Link></li>
-              <li><Link href="#timeline" className="hover:text-green-500 transition-colors">{t('title.timeline')}</Link></li>
+              <li><Link href="#timeline" className="hover:text-green-500 transition-colors">{t('title.timelineTitle')}</Link></li>
               <li><Link href="#projects" className="hover:text-green-500 transition-colors">{t('title.projects')}</Link></li>
               <li><Link href="#contact" className="hover:text-green-500 transition-colors">{t('title.contact')}</Link></li>
             </ul>
@@ -41,7 +49,7 @@ export default function Component() {
             <h1 className="text-4xl font-bold mb-4">{t('title.greeting', { name: 'José Neto' })}</h1>
             <p className="text-xl mb-8">{t('title.role')}</p>
             <div className="flex justify-center space-x-4">
-              <Button variant="outline" className="border-green-500 text-green-500 hover:bg-green-500 hover:text-white">
+              <Button variant="outline" onClick={downloadCv} className="border-green-500 text-green-500 hover:bg-green-500 hover:text-white">
                 {t('title.viewResume')}
               </Button>
               <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white">
@@ -69,26 +77,7 @@ export default function Component() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">Work Timeline</h2>
             <div className="space-y-8">
-              {[
-                {
-                  company: "SPICE-P (Swiss Post Group)",
-                  role: "Senior Java Developer (Spring + Angular + Camunda)",
-                  period: "2024 - Present",
-                  technologies: ["Java", "Spring", "Hibernate", "Angular", "Camunda"]
-                },
-                {
-                  company: "Digital Solutions Ltd.",
-                  role: "Full-stack Developer (Spring + Angular)",
-                  period: "2023 - 2024",
-                  technologies: ["Java", "Spring", "Hibernate", "Angular", "Docker"]
-                },
-                {
-                  company: "Construo AG",
-                  role: "Full-stack Developer (Front-end focused)",
-                  period: "2022 - 2023",
-                  technologies: ["Angular", "RXJS", "NodeJS"]
-                }
-              ].map((job, index) => (
+              {WORK_EXPERIENCES.map((job, index) => (
                 <div key={index} className="flex items-start">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
                     <Briefcase className="w-6 h-6 text-white" />
@@ -118,20 +107,20 @@ export default function Component() {
           <Projects />
         </section>
 
-        <section id="contact" className="py-20 bg-gray-800">
+        <section id="contact" className="py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
             <div className="max-w-md mx-auto">
-              <form className="space-y-4">
-                <Input type="text" placeholder="Name" className="bg-gray-700 border-gray-600" />
-                <Input type="email" placeholder="Email" className="bg-gray-700 border-gray-600" />
-                <Textarea placeholder="Message" className="bg-gray-700 border-gray-600" />
+              <form className="space-y-4" action="/api/contact" method="POST">
+                <Input type="text" name="name" placeholder="Name" className="bg-gray-700 border-gray-600" />
+                <Input type="email" name="email" placeholder="Email" className="bg-gray-700 border-gray-600" />
+                <Textarea placeholder="Message" name="message" className="bg-gray-700 border-gray-600" />
                 <Button className="w-full bg-green-500 hover:bg-green-600">Send Message</Button>
               </form>
             </div>
             <div className="mt-8 flex justify-center space-x-4">
               <Link href="https://github.com/jbqneto" target="_blank" className="text-gray-400 hover:text-white">
-                <Image alt="github" src={Github} className="w-6 h-6" />
+                <Github className="w-6 h-6" />
               </Link>
               <Link href="https://www.linkedin.com/in/jbqneto" target="_blank" className="text-gray-400 hover:text-white">
                 <Linkedin className="w-6 h-6" />

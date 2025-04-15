@@ -16,7 +16,7 @@ const CV_URL = "https://drive.google.com/file/d/1AG79l8u-wQK29Ut_1j6qbQr0RdpWz91
 export default function Component() {
   const t = useTranslations();
 
-  function downloadCv(evt: MouseEvent): void {
+  function downloadCv(evt: any): void {
     evt.preventDefault();
 
     window.open(CV_URL, "_blank");

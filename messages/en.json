@@ -18,7 +18,21 @@
         "messagePlaceholder": "Message",
         "sendMessage": "Send Message",
         "viewProject": "View Project",
-        "footer": "© {year} {name}. All rights reserved."
+        "footer": "© {year} {name}. All rights reserved.",
+        "intro": "Hello, World! I'm",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "navigationLabel": "Main navigation",
+        "languageLabel": "Language",
+        "homeLabel": "JBQNeto — Home",
+        "skipToContent": "Skip to content",
+        "exploreProjects": "Explore projects",
+        "learningNote": "* Technologies I am exploring.",
+        "projectDescriptions": {
+            "nuratools": "Practical online tools for everyday tasks, from QR codes to converters.",
+            "digitalCard": "Digital business cards to share professional details with a link or QR code.",
+            "focusBeat": "A Pomodoro timer with music to support focused work sessions."
+        }
     },
     "home": {
         "jobs": [

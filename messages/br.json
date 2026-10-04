@@ -6,7 +6,7 @@
         "projects": "Projetos",
         "contact": "Contato",
         "greeting": "Olá, Mundo! Eu sou {name}",
-        "role": "Full-stack Developer  |  Tech Explorer  |  Blockchain curious",
+        "role": "Desenvolvedor full-stack | Explorador de tecnologia | Curioso por blockchain",
         "viewResume": "Ver Currículo",
         "myBlog": "Meu blog",
         "skillsTitle": "Habilidades e Tecnologias",
@@ -18,7 +18,21 @@
         "messagePlaceholder": "Mensagem",
         "sendMessage": "Enviar Mensagem",
         "viewProject": "Ver Projeto",
-        "footer": "© {year} {name}. Todos os direitos reservados."
+        "footer": "© {year} {name}. Todos os direitos reservados.",
+        "intro": "Olá, Mundo! Eu sou",
+        "openMenu": "Abrir menu",
+        "closeMenu": "Fechar menu",
+        "navigationLabel": "Navegação principal",
+        "languageLabel": "Idioma",
+        "homeLabel": "JBQNeto — Início",
+        "skipToContent": "Pular para o conteúdo",
+        "exploreProjects": "Explorar projetos",
+        "learningNote": "* Tecnologias que estou explorando.",
+        "projectDescriptions": {
+            "nuratools": "Ferramentas online para tarefas do dia a dia, de QR codes a conversores.",
+            "digitalCard": "Cartões de visita digitais para compartilhar informações profissionais por link ou QR code.",
+            "focusBeat": "Um timer Pomodoro com música para ajudar nas sessões de trabalho focado."
+        }
     },
     "home": {
         "jobs": [

@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist), Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -97,4 +97,30 @@ section#contact {
   background-color: #0F0E0F;
 }
 
-rect {}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .section-spacing {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+  .section-heading {
+    @apply mb-7 text-balance text-center text-2xl font-bold tracking-tight sm:mb-10 sm:text-3xl;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+:where(a, button, input, textarea):focus-visible {
+  outline: 2px solid #4ade80;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}

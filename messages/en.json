@@ -32,7 +32,8 @@
             "nuratools": "Practical online tools for everyday tasks, from QR codes to converters.",
             "digitalCard": "Digital business cards to share professional details with a link or QR code.",
             "focusBeat": "A Pomodoro timer with music to support focused work sessions."
-        }
+        },
+        "professionalSummary": "Full-stack development with Java, Spring Boot and Angular, from system integrations to practical web applications."
     },
     "home": {
         "jobs": [

@@ -1,6 +1,9 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import '../globals.css';
+import localFont from 'next/font/local';
+
+const geist = localFont({ src: '../fonts/GeistVF.woff', display: 'swap', variable: '--font-geist' });
 
 export default async function LocaleLayout({
   children,
@@ -14,8 +17,8 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body>
+    <html lang={locale === 'br' ? 'pt-BR' : locale}>
+      <body className={geist.variable}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

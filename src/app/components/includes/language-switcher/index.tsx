@@ -1,36 +1,29 @@
-'use client'
+'use client';
 
 import { locales } from '@/i18n/routing';
-import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
-export default function LanguageSwitcher() {
-    const router = useRouter()
-    const pathname = usePathname()
-    const [language, setLanguage] = useState('en');
+export default function LanguageSwitcher({ onChange }: { onChange?: () => void }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const language = useLocale();
+  const t = useTranslations('title');
 
-    useEffect(() => {
-        const currentLocale = pathname.split('/')[1]
-        setLanguage(locales.includes(currentLocale) ? currentLocale : 'en')
-    }, [pathname])
+  const changeLanguage = (locale: string) => {
+    onChange?.();
+    if (language === locale) return;
+    const newPathname = pathname.replace(/^\/[^/]+/, `/${locale}`);
+    router.push(`${newPathname}${window.location.search}${window.location.hash}`, { scroll: false });
+  };
 
-    const changeLanguage = (lang: string) => {
-        const newPathname = pathname.replace(/^\/[^\/]+/, `/${lang}`)
-        router.push(newPathname)
-    }
-
-    return (
-        <div className="flex space-x-2">
-            {locales.map((locale) => (
-                <button
-                    key={locale}
-                    onClick={() => changeLanguage(locale)}
-                    className={`w-8 h-8 rounded-full overflow-hidden ${language === locale ? 'ring-2 ring-green-500' : ''}`}
-                >
-                    <Image width={25} height={25} src={`/imgs/ln-${locale}.webp`} alt={locale} className="w-full h-full object-cover" />
-                </button>
-            ))}
-        </div>
-    )
+  return (
+    <div role="group" aria-label={t('languageLabel')} className="flex rounded-lg border border-gray-700 p-0.5">
+      {locales.map((locale) => (
+        <button key={locale} type="button" onClick={() => changeLanguage(locale)} aria-label={locale === 'en' ? 'English' : 'Português'} aria-pressed={language === locale} className={`min-h-11 min-w-11 rounded-md text-xs font-semibold transition-colors ${language === locale ? 'bg-green-400 text-gray-950' : 'text-gray-300 hover:bg-gray-800 hover:text-white'}`}>
+          {locale === 'en' ? 'EN' : 'PT'}
+        </button>
+      ))}
+    </div>
+  );
 }

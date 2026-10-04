@@ -1,44 +1,29 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import Github from '../../../../../public/imgs/github.svg';
+import { ArrowUpRight, CreditCard, Music, Wrench } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-export type Project = {
-    id: number;
-    name: string;
-    description: string;
-    link: string;
-};
+const projects = [
+  { name: 'NuraTools', key: 'nuratools', link: 'https://tools.thedevlab.site/', icon: Wrench },
+  { name: 'Cartão Digital', key: 'digitalCard', link: 'https://www.cartaodigital.app/', icon: CreditCard },
+  { name: 'Focus Beat', key: 'focusBeat', link: 'https://focus.thedevlab.site/', icon: Music },
+] as const;
 
 export function Projects() {
-    const [projects, setProjects] = useState<Project[]>([]);
-
-    useEffect(() => {
-        setProjects([]);
-    }, []);
-
-    return (
-        <>
-            {projects.length > 0 && (
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-8 text-center">Featured Projects</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project) => (
-                            <div key={project.id} className="bg-gray-800 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                                <img src={`/imgs/placeholder.svg?height=200&width=400`} alt={`Project ${project}`} className="w-full h-48 object-cover" />
-                                <div className="p-4">
-                                    <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                                    <p className="text-gray-400 mb-4">{project.description}</p>
-                                    <div className="flex justify-between items-center">
-                                        <Link href={project.link} className="text-green-500 hover:underline">View Project</Link>
-                                        <Image alt="github" src={Github} className="w-6 h-6" />
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-        </>
-    )
+  const t = useTranslations('title');
+  return (
+    <div className="site-container">
+      <h2 className="section-heading">{t('projectsTitle')}</h2>
+      <div className="grid gap-4 md:grid-cols-3 sm:gap-6">
+        {projects.map(({ name, key, link, icon: Icon }) => (
+          <article key={key} className="flex min-w-0 flex-col rounded-2xl border border-gray-700 bg-gray-800 p-6">
+            <Icon className="mb-5 h-7 w-7 text-green-400" aria-hidden="true" />
+            <h3 className="text-xl font-semibold">{name}</h3>
+            <p className="mb-6 mt-3 flex-1 text-base leading-relaxed text-gray-300">{t(`projectDescriptions.${key}`)}</p>
+            <a href={link} target="_blank" rel="noopener noreferrer" aria-label={`${t('viewProject')}: ${name}`} className="flex min-h-11 items-center gap-2 self-start rounded-md text-sm font-semibold text-green-400 hover:text-green-300">
+              {t('viewProject')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
 }

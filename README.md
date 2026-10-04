@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## SEO
+
+Production metadata uses `https://dev.jbqneto.com` as the canonical origin. Localized titles, descriptions, language alternatives and profile structured data are maintained in `src/lib/seo.ts`. `/en` and `/br` each have a self-referencing canonical; `x-default` points to `/br`, the default language. The sitemap lists the two canonical pages, and the Open Graph image route generates a localized 1200 × 630 PNG. Vercel preview and development deployments use `noindex`.
+
+After deploying, verify domain ownership in Google Search Console, submit `https://dev.jbqneto.com/sitemap.xml`, and inspect `/en` and `/br`. Check the deployed profile markup with Google's Rich Results Test. Indexing and enhanced search results depend on the search engine; metadata does not guarantee ranking.

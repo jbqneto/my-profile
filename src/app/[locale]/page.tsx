@@ -3,24 +3,29 @@ import { Input } from '@/app/components/ui/input';
 import { Textarea } from '@/app/components/ui/textarea';
 import { ArrowDown, ArrowUpRight, Briefcase, Calendar, Code, FileText, Github, Linkedin } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { isSiteLocale, profileStructuredData } from '@/lib/seo';
 import { WORK_EXPERIENCES } from '../../../data/constants';
 import Navigation from '../components/includes/navigation';
 import { Projects } from '../components/includes/projects/projects';
 
 const CV_URL = 'https://drive.google.com/file/d/1AG79l8u-wQK29Ut_1j6qbQr0RdpWz91z/view?usp=drive_link';
 
-export default async function Component() {
+export default async function Component({ params: { locale } }: { params: { locale: string } }) {
+  if (!isSiteLocale(locale)) notFound();
   const t = await getTranslations('title');
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
       <a href="#main-content" className="sr-only fixed left-4 top-4 z-[60] rounded-lg bg-green-400 px-4 py-3 text-gray-950 focus:not-sr-only">{t('skipToContent')}</a>
       <Navigation />
       <main id="main-content" tabIndex={-1}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileStructuredData(locale)).replace(/</g, '\\u003c') }} />
         <section id="about" className="border-b border-gray-800 bg-gray-800/60 py-14 sm:py-20 lg:py-28">
           <div className="site-container text-center">
             <p className="mb-4 font-mono text-sm text-green-400 sm:text-base">{t('intro')}</p>
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">José Neto</h1>
             <p className="mx-auto mb-8 mt-5 max-w-2xl text-balance text-base leading-relaxed text-gray-300 sm:text-xl">{t('role')}</p>
+            <p className="mx-auto mb-8 max-w-2xl text-balance text-sm leading-relaxed text-gray-400 sm:text-base">{t('professionalSummary')}</p>
             <div className="mx-auto flex max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:gap-4">
               <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-green-400 px-6 text-sm font-semibold text-gray-950 transition-colors hover:bg-green-300">
                 <FileText className="h-4 w-4" aria-hidden="true" />{t('viewResume')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
